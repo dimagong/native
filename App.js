@@ -1,6 +1,6 @@
-import React, {useState, Component} from 'react';
-import {View, StyleSheet, ScrollView} from 'react-native';
-import {ImageCart, Header} from './src/components/uikit';
+import React, {Component} from 'react';
+import {View, ScrollView} from 'react-native';
+import {ImageCart, Header, Layout} from './src/components/uikit';
 
 const url =
   'https://gitlab.com/gHashTag/react-native-init-data/-/raw/master/db.json';
@@ -25,35 +25,22 @@ class App extends Component {
 
   render() {
     const {title, data} = this.state;
-    const {cart} = styles;
+    //const {cart} = styles;
     console.log('state', this.state);
     return (
       <View>
         <Header title={title} />
         <ScrollView>
-          <View style={cart}>
+          <Layout>
             {data.map(item => {
               return <ImageCart item={item} key={item.id} />;
             })}
-          </View>
+          </Layout>
         </ScrollView>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  cart: {
-    marginTop: 30,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    flexShrink: 2,
-    justifyContent: 'space-around',
-    alignItems: 'stretch',
-    marginBottom: 150,
-  },
-});
 
 export default App;
 

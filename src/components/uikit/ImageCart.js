@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     textAlign: 'center',
     width: w / 2.4,
-    backgroundColor: 'gold',
+    //backgroundColor: 'gold',
   },
   cover: {
     width: w / 2.4,

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {ifIphoneX} from 'react-native-iphone-x-helper';
 
 const Header = ({title}) => {
   const {viewStyle, textStyle, viewShadow} = styles;
@@ -21,10 +22,16 @@ const styles = StyleSheet.create({
   },
   viewStyle: {
     backgroundColor: '#30d0fe',
-    height: 116,
+    ...ifIphoneX(
+      {
+        height: 90,
+      },
+      {
+        height: 116,
+      },
+    ),
     justifyContent: 'center',
     paddingLeft: 22,
-    paddingTop: 71,
     position: 'relative',
     // shadowColor: '#000',
     // textShadowOffset: {width: 0, height: 2},
@@ -35,6 +42,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 28,
     fontFamily: 'AvenirNext-DemiBold',
+    ...ifIphoneX(
+      {
+        paddingTop: 75,
+      },
+      {
+        paddingTop: 50,
+      },
+    ),
   },
 });
 
