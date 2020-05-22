@@ -1,17 +1,20 @@
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {w} from '../../../constans';
 
-const ImageCart = ({item}) => {
-  const {id, name, year, image, info} = item;
+const ImageCard = ({item, onPress}) => {
+  const {name, image} = item;
   const {h1, cover, container, sub} = styles;
+  const img = `https${image.medium.slice(4)}`;
   return (
-    <View style={container}>
-      <View style={sub}>
-        <Image style={cover} source={{uri: `${image}`}} />
+    <TouchableOpacity onPress={onPress}>
+      <View style={container}>
+        <View style={sub}>
+          <Image style={cover} source={{uri: `${img}`}} />
+        </View>
+        <Text style={h1}>{name.toUpperCase()}</Text>
       </View>
-      <Text style={h1}>{name.toUpperCase()}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -41,9 +44,12 @@ const styles = StyleSheet.create({
   h1: {
     fontFamily: 'Roboto',
     fontSize: 18,
+    fontWeight: 'bold',
     alignSelf: 'center',
     textAlign: 'center',
     width: w / 2.4,
+    marginTop: 10,
+    lineHeight: 30,
     //backgroundColor: 'gold',
   },
   cover: {
@@ -53,6 +59,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export {ImageCart};
+export {ImageCard};
 
 //source={{uri: 'https://picsum.photos/200/300?random=1'}}

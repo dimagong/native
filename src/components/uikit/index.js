@@ -1,3 +1,4 @@
 export * from './Header';
-export * from './ImageCart';
+export * from './ImageCard';
 export * from './Layout';
+export * from './ImageBigCard';

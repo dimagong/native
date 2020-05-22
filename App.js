@@ -3,7 +3,8 @@ import {View, ScrollView} from 'react-native';
 import {ImageCart, Header, Layout} from './src/components/uikit';
 
 const url =
-  'https://gitlab.com/gHashTag/react-native-init-data/-/raw/master/db.json';
+  //'https://gitlab.com/gHashTag/react-native-init-data/-/raw/master/db.json';
+  'http://api.tvmaze.com/search/shows?q=stargite';
 
 class App extends Component {
   state = {
@@ -17,6 +18,7 @@ class App extends Component {
       const data = await response.json();
       console.log('response', response);
       console.log('data', data);
+      // eslint-disable-next-line react/no-did-mount-set-state
       this.setState({data});
     } catch (error) {
       throw error;
