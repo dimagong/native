@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 import {ImageCard, Header, Layout} from '../components/uikit';
-import {STARGATE_DETAILS} from '../routes';
+import {BATMAN_DETAILS} from '../routes';
 
 const url =
   //'http://api.tvmaze.com/search/shows?q=girls';
-  'http://api.tvmaze.com/search/shows?q=stargite';
+  'http://api.tvmaze.com/search/shows?q=batman';
+//  'http://api.tvmaze.com/search/shows?q=stargite';
 //https://gitlab.com/gHashTag/react-native-init-data/-/raw/master/db.json';
 
 class HomeScreen extends Component {
   state = {
-    title: 'STAR GATE',
+    title: 'BATMAN',
     data: [],
   };
 
@@ -44,9 +45,7 @@ class HomeScreen extends Component {
                   item={item.show}
                   key={item.show.id}
                   //onPress={() => console.log('onPress')}
-                  onPress={() =>
-                    navigation.navigate(STARGATE_DETAILS, item.show)
-                  }
+                  onPress={() => navigation.navigate(BATMAN_DETAILS, item.show)}
                 />
               );
             })}

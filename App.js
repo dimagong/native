@@ -1,59 +1,46 @@
 import React, {Component} from 'react';
-import {View, ScrollView} from 'react-native';
-import {ImageCart, Header, Layout} from './src/components/uikit';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Screen1 from './src/screen1';
+import Screen2 from './src/screen2';
+import Screen3 from './src/screen3';
+import {STARGATE_HOME, BATMAN_HOME, SPIDER_HOME} from './src/routes';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const url =
-  //'https://gitlab.com/gHashTag/react-native-init-data/-/raw/master/db.json';
-  'http://api.tvmaze.com/search/shows?q=stargite';
+//<ion-icon name="videocam-outline"></ion-icon>
+const Tab = createBottomTabNavigator();
 
 class App extends Component {
-  state = {
-    title: 'STAR GITE',
-    data: [],
-  };
-
-  componentDidMount = async () => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      console.log('response', response);
-      console.log('data', data);
-      // eslint-disable-next-line react/no-did-mount-set-state
-      this.setState({data});
-    } catch (error) {
-      throw error;
-    }
-  };
-
   render() {
-    const {title, data} = this.state;
-    //const {cart} = styles;
-    console.log('state', this.state);
+    console.log('App props', this.props);
     return (
-      <View>
-        <Header title={title} />
-        <ScrollView>
-          <Layout>
-            {data.map(item => {
-              return <ImageCart item={item} key={item.id} />;
-            })}
-          </Layout>
-        </ScrollView>
-      </View>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, TintColor}) => {
+              let iconName;
+              if (route.name === STARGATE_HOME) {
+                iconName = focused ? 'ios-add-circle' : 'ios-play';
+              } else if (route.name === BATMAN_HOME) {
+                iconName = focused ? 'ios-add-circle' : 'ios-play';
+              } else if (route.name === SPIDER_HOME) {
+                iconName = focused ? 'ios-add-circle' : 'ios-play';
+              }
+              return <Ionicons name={iconName} size={25} color={TintColor} />;
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: 'tomato',
+            inactiveTintColor: 'gray',
+          }}>
+          {console.log('TAB props', this.props)}
+          <Tab.Screen name={STARGATE_HOME} component={Screen1} />
+          <Tab.Screen name={BATMAN_HOME} component={Screen2} />
+          <Tab.Screen name={SPIDER_HOME} component={Screen3} />
+        </Tab.Navigator>
+      </NavigationContainer>
     );
   }
 }
 
 export default App;
-
-// const App = () => {
-//   const [count, nextCount] = useState(0);
-
-//   return (
-//     <View style={styles.component}>
-//       <Text style={styles.text}>Clicks</Text>
-//       <Text style={styles.count}>{count}</Text>
-//       <Button title="Button" onPress={() => nextCount(count + 1)} />
-//     </View>
-//   );
-// };

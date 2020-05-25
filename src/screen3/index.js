@@ -3,23 +3,23 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import DetailScreen from './DetailScreen';
-import {STARGATE_HOME, STARGATE_DETAILS} from '../routes';
+import {SPIDER_HOME, SPIDER_DETAILS} from '../routes';
 
 const Stack = createStackNavigator();
 
-const Screen1 = () => {
+const Screen3 = () => {
   return (
-    // <NavigationContainer>
+    //<NavigationContainer>
     <Stack.Navigator headerMode="none">
       <Stack.Screen
-        name={STARGATE_HOME}
+        name={SPIDER_HOME}
         component={HomeScreen}
         options={{
           headerStyle: {backgroundColor: '#f4511e'},
         }}
       />
       <Stack.Screen
-        name={STARGATE_DETAILS}
+        name={SPIDER_DETAILS}
         component={DetailScreen}
         options={{
           headerStyle: {backgroundColor: '#f4511e'},
@@ -29,13 +29,4 @@ const Screen1 = () => {
     //</NavigationContainer>
   );
 };
-export default Screen1;
-
-// export default createStackNavigator(
-//   {
-//     [STARGATE_HOME]: HomeScreen,
-//   },
-//   {
-//     headerMode: 'none',
-//   },
-// );
+export default Screen3;

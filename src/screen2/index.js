@@ -1,25 +1,27 @@
 import React from 'react';
 //import {NavigationContainer} from '@react-navigation/native';
+//import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import DetailScreen from './DetailScreen';
-import {STARGATE_HOME, STARGATE_DETAILS} from '../routes';
+import {BATMAN_HOME, BATMAN_DETAILS} from '../routes';
 
 const Stack = createStackNavigator();
+//const Tab = createBottomTabNavigator();
 
-const Screen1 = () => {
+const Screen2 = () => {
   return (
-    // <NavigationContainer>
+    //<NavigationContainer>
     <Stack.Navigator headerMode="none">
       <Stack.Screen
-        name={STARGATE_HOME}
+        name={BATMAN_HOME}
         component={HomeScreen}
         options={{
           headerStyle: {backgroundColor: '#f4511e'},
         }}
       />
       <Stack.Screen
-        name={STARGATE_DETAILS}
+        name={BATMAN_DETAILS}
         component={DetailScreen}
         options={{
           headerStyle: {backgroundColor: '#f4511e'},
@@ -29,7 +31,7 @@ const Screen1 = () => {
     //</NavigationContainer>
   );
 };
-export default Screen1;
+export default Screen2;
 
 // export default createStackNavigator(
 //   {
