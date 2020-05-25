@@ -35,7 +35,12 @@ class HomeScreen extends Component {
     //console.log('state', this.state);
     return (
       <View>
-        <Header title={title} />
+        <Header
+          title={title}
+          leftIcon="ios-menu"
+          leftColor="#fff"
+          onPress={() => navigation.openDrawer()}
+        />
         <ScrollView>
           <Layout>
             {data.map(item => {
