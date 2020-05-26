@@ -29,10 +29,10 @@ class HomeScreen extends Component {
   render() {
     const {title, data} = this.state;
     const {navigation} = this.props;
-    //console.log('this.props', this.props);
+    console.log('this.props Screen1', this.props);
     //console.log('navigation', navigation);
     //const {cart} = styles;
-    //console.log('state', this.state);
+    console.log('state', this.state);
     return (
       <View>
         <Header

@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View, Button, Alert} from 'react-native';
 import {Header, ImageBigCard} from '../components/uikit';
+//import { NavigationHelpersContext } from '@react-navigation/native';
+import {STARGATE_HOME} from '../routes';
 //import Icon from 'react-native-vector-icons/FontAwesome';
 
 class DetailScreen extends PureComponent {
@@ -25,6 +27,12 @@ class DetailScreen extends PureComponent {
         <ScrollView>
           <View style={sub}>
             <ImageBigCard data={data} />
+            <Button
+              title="Press me"
+              color="#f194ff"
+              //onPress={() => Alert.alert('Button with adjusted color pressed')}
+              onPress={() => navigation.navigate(STARGATE_HOME)}
+            />
             <Text style={h1}>{name.toUpperCase()}</Text>
             <Text style={h2}>
               {summary ? summary.replace(/<[^>]+>/g, '') : 'SORRY, NO SUMMARY'}

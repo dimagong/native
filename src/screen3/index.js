@@ -3,7 +3,8 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './HomeScreen';
 import DetailScreen from './DetailScreen';
-import {SPIDER_HOME, SPIDER_DETAILS} from '../routes';
+import {SPIDER_HOME, SPIDER_DETAILS, STARGATE_HOME} from '../routes';
+import StarGateHomeScreen from '../screen1/HomeScreen';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,13 @@ const Screen3 = () => {
       <Stack.Screen
         name={SPIDER_DETAILS}
         component={DetailScreen}
+        options={{
+          headerStyle: {backgroundColor: '#f4511e'},
+        }}
+      />
+      <Stack.Screen
+        name={STARGATE_HOME}
+        component={StarGateHomeScreen}
         options={{
           headerStyle: {backgroundColor: '#f4511e'},
         }}
